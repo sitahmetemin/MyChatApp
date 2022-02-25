@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  mychatapp.web:
+    container_name: mychatappweb
+    image: ${DOCKER_REGISTRY-}mychatappweb
+    build:
+      context: .
+      dockerfile: MyChatApp.Web/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - mongo
+    links:
+    - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - ../data:/data/db
+    ports:
+      - "27017:27017"

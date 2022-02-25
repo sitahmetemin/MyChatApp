@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Chat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main-chat-section">
+    <div class="chat-section">
+        <div class="channel-name" id="channelNameArea">Channel Name</div>
+        <div class="chat-area" id="chatArea"></div>
+        <div class="chat-text-area d-none" id="messageSendArea">
+            <input type="text" class="form-control" placeholder="Write here and press Enter" id="message" />
+            <button class="btn btn-outline-light" id="sendMessageButton">Send</button>
+        </div>
+    </div>
+    <div class="channel-section">
+        <div class="channel-header">
+            Channels
+        </div>
+        <div class="channel-body">
+            <div class="channel-item">
+                <div>Developer Channel</div>
+                <button class="btn btn-success join-channel-button" data-channelName="DeveloperChannel">Join</button>
+            </div>
+            <div class="channel-item">
+                <div>Team Channel</div>
+                <button class="btn btn-success join-channel-button" data-channelName="TeamChannel">Join</button>
+            </div>
+            <div class="channel-item">
+                <div>StackOverFlow Channel</div>
+                <button class="btn btn-success join-channel-button" data-channelName="StackOverFlowChannel">Join</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="setUserNameModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Set UserName</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="userNameInput" placeholder="UserName" class="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="setUserName()">Save UserName</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section js{
+<script src="/lib/signalr/signalr.min.js"></script>
+<script src="/js/chat.js"></script>
+}
