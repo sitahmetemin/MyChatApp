@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MyChatApp.Core.Abstract.Base.MongoDB;
 using MyChatApp.Core.Concrete.MongoDB;
 using MyChatApp.Web.src.Concrete.Extansions;
+using MyChatApp.Web.src.Concrete.Extansions.Middlewares;
 using MyChatApp.Web.src.Concrete.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,7 +39,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
+
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

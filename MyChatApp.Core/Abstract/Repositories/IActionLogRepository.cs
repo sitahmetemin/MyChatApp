@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyChatApp.Core.Abstract.Repositories
 {
-    public interface IActionLogRepository : ICrudRepository<ActionLog>
+    public interface IMessageRepository : ICrudRepository<Message>
     {
     }
 }

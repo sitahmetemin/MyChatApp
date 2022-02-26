@@ -15,10 +15,12 @@ namespace MyChatApp.Web.src.Concrete.Extansions
         {
             services.AddTransient(typeof(ICrudRepository<>), typeof(CrudRepository<>));
             services.AddTransient<IMessageRepository, MessageRepository>();
+            services.AddTransient<IActionLogRepository, ActionLogRepository>();
         }
 
         public static void RegisterManager(this IServiceCollection services)
         {
+            services.AddTransient<IActionLogManager, ActionLogManager>();
             services.AddScoped(typeof(ICrudManager<>), typeof(CrudManager<>));
             services.AddScoped<IMessageManager, MessageManager>();
         }
